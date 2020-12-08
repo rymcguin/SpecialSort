@@ -1,6 +1,6 @@
 package IntSortingMethods;
 
-public class SelectionSort extends Sort {
+public class SpecialSort extends Sort {
 
     void algorithm() {
     	/* You may change any code within this method */
@@ -30,7 +30,7 @@ public class SelectionSort extends Sort {
 
     public String getAuthor() {
     	/* You MUST change the following line of code if you want credit.*/
-        return "abc123 [and xyz456]";
+        return "rcm421 and nrs221";
     }
 
 }
