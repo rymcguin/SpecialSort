@@ -1,13 +1,18 @@
 
-Class_Name,Author,sortedData.txt,unsortedData.txt
+Class_Name,Author,sortedData.txt,reverseSortedData.txt,unsortedData.txt
 IntSortingMethods.SpecialSort,rcm421 and nrs221
 Trial 1 time: 0
-Trial 2 time: 1
-Trial 3 time: 0
+Trial 2 time: 0
+Trial 3 time: 1
 Average time: 0
 
-Trial 1 time: 1
+Trial 1 time: 2
+Trial 2 time: 2
+Trial 3 time: 2
+Average time: 2
+
+Trial 1 time: 3
 Trial 2 time: 1
-Trial 3 time: 0
-Average time: 0
+Trial 3 time: 1
+Average time: 1
 

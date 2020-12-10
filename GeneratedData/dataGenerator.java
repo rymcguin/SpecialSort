@@ -5,7 +5,7 @@ import java.io.IOException;
 public class dataGenerator {
   public static void main(String args[]) {
     try {
-      File myObj = new File("newUnsortedData.txt");
+      File myObj = new File("reverseSortedData.txt");
       if (myObj.createNewFile()) {
         System.out.println("File created: " + myObj.getName());
       } else {
@@ -17,8 +17,8 @@ public class dataGenerator {
     }
 
     try {
-      FileWriter myWriter = new FileWriter("newUnsortedData.txt");
-      for (int i = 0; i < 10000; i++) {
+      FileWriter myWriter = new FileWriter("reverseSortedData.txt");
+      for (int i = 10000; i > 0; i--) {
         myWriter.write(i + " \n");
       }
      

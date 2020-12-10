@@ -1,82 +1,85 @@
 package IntSortingMethods;
 
 public class SpecialSort extends Sort {
+    static final int MIN = 15;
 
     void algorithm() {
         boolean sorted = true;
-        
-        for (int i = 1; i < this.data.length; i++) {
+        int i;
+        for (i = 1; i < this.data.length; i++) {
             if (this.data[i - 1] > this.data[i]) {
                 sorted = false;
                 break;
             }
         }
         if (!sorted) {
-         sort(this.data, 0, this.data.length-1);
+            sort(this.data, 0, this.data.length - 1);
+        }
+    }
+    
+    void sort(int arr[], int left, int right) {
+        if (left < right){
+            if ((right - left) > MIN) {
+                int mid = ((left + right) / 2);
+                sort(arr, left, mid);
+                sort(arr, mid + 1, right);
+                merge(arr, left, mid, right);  
+            } else {
+                insertSort(arr, left, right);
+            }
         }
     }
 
-    void sort(int arr[], int l, int r)
-    {
-        if (l < r) {
-            // Find the middle point
-            int m = (l + r) / 2;
+    void merge(int arr[], int left, int mid, int right){
 
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
+        int L[] = new int[mid - left + 1];
+        int R[] = new int[right - mid];
 
-            // Merge the sorted halves
-            merge(arr, l, m, r);
-        }
-    }
-    void merge(int arr[], int l, int m, int r)
-    {
-        // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
- 
-        /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
- 
-        /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
- 
-        /* Merge the temp arrays */
- 
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
- 
-        // Initial index of merged subarry array
-        int k = l;
-        while (i < n1 && j < n2) {
+        int rSize = R.length;
+        int lSize = L.length;
+
+        for (int i = 0; i < lSize; ++i)
+            L[i] = arr[left + i];
+        for (int j = 0; j < rSize; ++j)
+            R[j] = arr[mid + 1 + j];
+
+        int i = 0;
+        int j = 0;
+
+        int k = left;
+        while (i < lSize && j < rSize) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
-            }
-            else {
+            } else {
                 arr[k] = R[j];
                 j++;
             }
             k++;
         }
- 
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) {
+
+        while (i < lSize){
             arr[k] = L[i];
             i++;
             k++;
         }
- 
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) {
+
+        while (j < rSize) {
             arr[k] = R[j];
             j++;
             k++;
+        }
+    }
+    
+    void insertSort(int array[], int first, int last) {
+         for (int i = first; i < last; i++){
+            int j = i+1;
+            int B = array[i+1];
+                while ((j > first) && (array[j-1] > B)){
+                    array[j] = array[j-1];
+                    j--;
+                }
+            array[j] = B;
         }
     }
     
