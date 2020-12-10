@@ -3,25 +3,19 @@ package IntSortingMethods;
 public class SpecialSort extends Sort {
 
     void algorithm() {
-        sort(this.data, 0, this.data.length-1);
-    }
-
-    void Nullsort(int[] arr) {
-        int n = arr.length;
-
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n - 1; i++) {
-
-            int min_idx = i;
-            for (int j = i + 1; j < n; j++)
-                if (arr[j] < arr[min_idx])
-                    min_idx = j;
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
-
+        boolean sorted = true;
+        
+        for (int i = 1; i < this.data.length; i++) {
+            if (this.data[i - 1] > this.data[i]) {
+                sorted = false;
+                break;
+            }
+        }
+        if (!sorted) {
+         sort(this.data, 0, this.data.length-1);
         }
     }
+
     void sort(int arr[], int l, int r)
     {
         if (l < r) {
