@@ -1,8 +1,5 @@
 package IntSortingMethods;
 
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveAction;
-
 public class MergeInsert extends Sort {
     static final int MIN = 15;
 
